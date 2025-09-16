@@ -8,7 +8,10 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-		./modules/bundle.nix
+		./modules/bundle.nix # Main programs defined
+		./packages.nix # Main packages
+		./modules/keymap.nix
+		./fonts.nix
   ];
 
   nix.settings.experimental-features = [
@@ -70,14 +73,6 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us,ru";
-    variant = "";
-    options = "grp:win_space_toggle";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -117,9 +112,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
