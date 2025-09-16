@@ -5,12 +5,16 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+		./modules/bundle.nix
+  ];
 
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -44,21 +48,21 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-	# For Nvidia
-	# Enable OpenGL
-	hardware.graphics.enable = true;
+  # For Nvidia
+  # Enable OpenGL
+  hardware.graphics.enable = true;
 
-	# Load nvidia driever for Xorg and Wayland
-	services.xserver.videoDrivers = ["nvidia"];
+  # Load nvidia driever for Xorg and Wayland
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-	hardware.nvidia = {
-		modesetting.enable = true;
-		powerManagement.enable = false;
-		powerManagement.finegrained = false;
-		open = false;
-		nvidiaSettings = true;
-		package = config.boot.kernelPackages.nvidiaPackages.stable;
-	};
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -69,8 +73,9 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "us,ru";
     variant = "";
+    options = "grp:win_space_toggle";
   };
 
   # Enable CUPS to print documents.
@@ -100,9 +105,13 @@
   users.users.b4bah = {
     isNormalUser = true;
     description = "B4bah";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -120,6 +129,9 @@
     wget
     kitty
     fastfetch
+    gh # GitHub CLI
+    bat # Alternative for "cat"
+    nil # Something for syntax syntaxHighlighting for nix language in zed-editor
 
     # IDEs
     vim
@@ -136,34 +148,34 @@
     protonvpn-gui
   ];
 
-	# Zsh and OhMyZsh
-	programs.zsh = {
-		enable = true;
-		enableCompletion = true;
-		autosuggestions.enable = true;
-		syntaxHighlighting.enable = true;
+  # Zsh and OhMyZsh
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
 
-		shellAliases = {
-			la = "ls -la";
-		};
+    shellAliases = {
+      la = "ls -la";
+    };
 
-		ohMyZsh = {
-			enable = true;
-			plugins = [
-				"git"
-			];
-			theme = "agnoster";
-		};
-		promptInit = ''
-		  fastfetch
-		'';
-	};
+    ohMyZsh = {
+      enable = true;
+      plugins = [
+        "git"
+      ];
+      theme = "agnoster";
+    };
+    promptInit = ''
+      		  fastfetch
+      		'';
+  };
 
-	# Enable VirtualBox
-	virtualisation.virtualbox.host.enable = true;
+  # Enable VirtualBox
+  virtualisation.virtualbox.host.enable = true;
 
-	# Something about GNOME
-	#services.xserver.desktopManager.gnome.extraGSettingsOverrides = "";
+  # Something about GNOME
+  #services.xserver.desktopManager.gnome.extraGSettingsOverrides = "";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
