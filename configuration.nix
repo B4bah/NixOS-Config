@@ -8,10 +8,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-		./modules/bundle.nix # Main programs defined
-		./packages.nix # Main packages
-		./modules/keymap.nix
-		./fonts.nix
+    ./modules/bundle.nix # Main programs defined
+    ./packages.nix # Main packages
+    ./fonts.nix
   ];
 
   nix.settings.experimental-features = [
@@ -112,59 +111,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # Tools
-    git
-    wget
-    kitty
-    fastfetch
-    gh # GitHub CLI
-    bat # Alternative for "cat"
-    nil # Something for syntax syntaxHighlighting for nix language in zed-editor
-
-    # IDEs
-    vim
-    neovim
-    zed-editor
-    vscode
-
-    # For programming
-    mono
-
-    # Applications
-    telegram-desktop
-    discord
-    protonvpn-gui
-  ];
-
-  # Zsh and OhMyZsh
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      la = "ls -la";
-    };
-
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-      theme = "agnoster";
-    };
-    promptInit = ''
-      		  fastfetch
-      		'';
-  };
-
-  # Enable VirtualBox
-  virtualisation.virtualbox.host.enable = true;
 
   # Something about GNOME
   #services.xserver.desktopManager.gnome.extraGSettingsOverrides = "";
