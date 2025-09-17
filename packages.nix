@@ -27,6 +27,7 @@
     telegram-desktop
     discord
     protonvpn-gui
+		libreoffice
   ];
 
 }
