@@ -112,6 +112,19 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  services.zapret = {
+    enable = true;
+    mode = "";
+    disableIpv6 = true;
+    firewallType = "iptables";
+
+    whitelist = ''
+      [
+      "youtube.com"
+      "discord.com"
+      ]
+    '';
+  };
   # Something about GNOME
   #services.xserver.desktopManager.gnome.extraGSettingsOverrides = "";
 
