@@ -114,16 +114,11 @@
 
   services.zapret = {
     enable = true;
-    mode = "";
-    disableIpv6 = true;
-    firewallType = "iptables";
 
-    whitelist = ''
-      [
+    whitelist = [
       "youtube.com"
       "discord.com"
-      ]
-    '';
+    ];
   };
   # Something about GNOME
   #services.xserver.desktopManager.gnome.extraGSettingsOverrides = "";
