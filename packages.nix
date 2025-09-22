@@ -25,6 +25,8 @@
 
     # For programming
     mono
+		python313
+		python314
 
     # Applications
     telegram-desktop

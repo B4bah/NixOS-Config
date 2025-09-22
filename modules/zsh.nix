@@ -16,7 +16,7 @@
       plugins = [
         "git"
       ];
-      theme = "agnoster";
+      theme = "refined";
     };
     promptInit = ''
       			fastfetch
