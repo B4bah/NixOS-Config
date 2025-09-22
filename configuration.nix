@@ -113,7 +113,7 @@
   programs.firefox.enable = true;
 
   services.zapret = {
-    enable = true;
+    # enable = true;
 
     params = [
       "tpws --split-pos=host+1 --oob"

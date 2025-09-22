@@ -16,7 +16,7 @@
       plugins = [
         "git"
       ];
-      theme = "refined";
+      theme = "rkj-repos";
     };
     promptInit = ''
       			fastfetch
