@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
 
   # Zsh and OhMyZsh
@@ -8,7 +9,7 @@
     syntaxHighlighting = {
       enable = true;
       highlighters = [ "main" "brackets" "pattern" "regexp" "root" "line" ];
-    }
+    };
 
     shellAliases = {
       la = "ls -la";
@@ -19,14 +20,10 @@
 
       plugins = [
         "git"
-        {
-        name = "powerlevel10k-config";
-        src = lib.cleanSource ./p10k-config;
-        file = "p10k.zsh";
-        }
+
 
       ];
-      theme = "powerlevel10k";
+      theme = "agnoster";
     };
 
     promptInit = ''

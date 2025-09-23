@@ -16,6 +16,7 @@
     nil # For syntax syntaxHighlighting for nix language in zed-editor
     pavucontrol
     zapret
+    zsh-powerlevel10k # kitty theme
 
     # IDEs
     vim
