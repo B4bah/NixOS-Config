@@ -8,7 +8,7 @@
     autosuggestions.enable = true;
     syntaxHighlighting = {
       enable = true;
-      highlighters = [ "main" "brackets" "pattern" "regexp" "root" "line" ];
+      highlighters = [ "main" "brackets" "pattern" "regexp" "line" ];
     };
 
     shellAliases = {
@@ -20,8 +20,7 @@
 
       plugins = [
         "git"
-
-
+				"sudo"
       ];
       theme = "agnoster";
     };
