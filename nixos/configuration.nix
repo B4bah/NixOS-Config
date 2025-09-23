@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -29,9 +29,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
@@ -50,21 +47,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # For Nvidia
-  # Enable OpenGL
-  hardware.graphics.enable = true;
-
-  # Load nvidia driever for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+  
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -94,38 +77,11 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.defaultUserShell = pkgs.zsh;
-  users.users.b4bah = {
-    isNormalUser = true;
-    description = "B4bah";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "input"
-    ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
-  };
 
   # Install firefox.
   programs.firefox.enable = true;
 
-  services.zapret = {
-    # enable = true;
-
-    params = [
-      "tpws --split-pos=host+1 --oob"
-      "tpws --split-pos=1,sniext+1,host+1,midsld,endhost-1 --fix-seg --disorder"
-      "tpws --split-pos=1,sniext+1,host+1,midsld,endhost-1 --fix-seg --oob --disorder"
-      "nfqws --dpi-desync=multidisorder --dpi-desync-split-pos=1,sniext+1,host+1,midsld-2,midsld,midsld+2,endhost-1"
-    ];
-    whitelist = [
-      "youtube.com"
-      "discord.com"
-    ];
-  };
+  
   # Something about GNOME
   #services.xserver.desktopManager.gnome.extraGSettingsOverrides = "";
 
