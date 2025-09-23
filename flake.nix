@@ -11,7 +11,7 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     polymc.url = "github:PolyMC/PolyMC";
