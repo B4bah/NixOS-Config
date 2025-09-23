@@ -1,0 +1,52 @@
+.
+├── flake.lock
+├── flake.nix
+├── home
+│   ├── home.nix
+│   └── modules
+│       ├── bundle.nix
+│       ├── fastfetch
+│       │   ├── default.nix
+│       │   └── nixos.png
+│       ├── git.nix
+│       ├── htop.nix
+│       └── zsh
+│           ├── default.nix
+│           └── p10k-config
+│               └── p10k.zsh
+├── LOG.txt
+├── nixos
+│   ├── configuration.nix
+│   ├── fonts.nix
+│   ├── hardware-configuration.nix
+│   ├── modules
+│   │   ├── bundle.nix
+│   │   ├── hyprland.nix
+│   │   ├── keymap.nix
+│   │   ├── networking.nix
+│   │   ├── nixvim
+│   │   │   ├── autocmds.nix
+│   │   │   ├── keymaps.nix
+│   │   │   ├── nixvim.nix
+│   │   │   ├── opts.nix
+│   │   │   └── plugins
+│   │   │       ├── barbar.nix
+│   │   │       ├── cmp.nix
+│   │   │       ├── comment.nix
+│   │   │       ├── floaterm.nix
+│   │   │       ├── lsp.nix
+│   │   │       ├── lualine.nix
+│   │   │       ├── mini.nix
+│   │   │       ├── neotree.nix
+│   │   │       ├── nix.nix
+│   │   │       ├── plugins-bundle.nix
+│   │   │       ├── telescope.nix
+│   │   │       └── transparent.nix
+│   │   ├── nvidia.nix
+│   │   ├── user.nix
+│   │   ├── virtualisation.nix
+│   │   └── zapret.nix
+│   └── packages.nix
+└── tree.txt
+
+10 directories, 40 files

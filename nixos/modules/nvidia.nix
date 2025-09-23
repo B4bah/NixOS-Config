@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   # For Nvidia
   # Enable OpenGL

@@ -1,3 +1,20 @@
+# { pkgs, ... }: 
+# {
+#   programs.fastfetch = {
+#     enable = true;
+#     settings = {
+#       logo = {
+#         type = "nixos";
+#       };
+#       modules = [ "os" "host" "kernel" ];
+#     };
+#   };
+# }
+
+
+
+
+{ config, pkgs, ... }: 
 {
   programs.fastfetch = {
     enable = true;
@@ -29,12 +46,12 @@
           key = "OS";
           keyColor = "31";
         }
-        {
-          type = "command";
-          key = " ├  ZaneyOS ";
-          keyColor = "31";
-          text = "echo v$" + "{ZANEYOS_VERSION}";
-        }
+        # {
+        #   type = "command";
+        #   key = " ├  NixOS ";
+        #   keyColor = "31";
+        #   text = "echo v$" + "{ZANEYOS_VERSION}";
+        # }
         {
           type = "kernel";
           key = " ├  ";

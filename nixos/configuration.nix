@@ -81,8 +81,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Install home-manager
-  programs.home-manager.enable = true;
 
   
   # Something about GNOME

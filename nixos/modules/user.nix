@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   # Define a user account. Don't forget to set a password with ‘passwd’
-  programs.zsh = enable = true;
+  programs.zsh.enable = true;
 
   users.users.b4bah = {
     isNormalUser = true;
@@ -12,5 +12,5 @@
   };
 
   # Enable automatic login for user
-  servives.getty.autoLoginUser = "b4bah";
+  services.getty.autologinUser = "b4bah";
 }
