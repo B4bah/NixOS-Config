@@ -12,10 +12,10 @@
     discord
     protonvpn-gui
     libreoffice
-    thunar # File manager
+    xfce.thunar # File manager
     yazi # Terminal file manager
     obsidian
-    polymc
+    # polymc
 
     rofi # Application launcher
     wofi # Application launcher
