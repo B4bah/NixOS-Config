@@ -36,7 +36,7 @@
         "git"
 				"sudo"
       ];
-      theme = "agnoster";
+      theme = "powerlevel10k";
     };
 
     promptInit = ''
