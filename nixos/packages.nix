@@ -34,7 +34,7 @@
     wget
     zapret
     tree
-    htop
+    btop
 
     # For terminal
     kitty

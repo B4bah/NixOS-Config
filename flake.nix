@@ -5,7 +5,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     home-manager ={
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -47,6 +47,12 @@
           ./nixos/configuration.nix
           inputs.nixvim.nixosModules.nixvim
 
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.b4bah = import ./home/home.nix;
+          }
+
           # zapret-discord-youtube.nixosModules.default
           # {
           #   services.zapret-discord-youtube = {
@@ -55,11 +61,6 @@
           #   };
           # }
         ];
-      };
-
-      homeConfiguration.b4bah = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home/home.nix ];
       };
 
     };

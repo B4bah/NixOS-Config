@@ -6,7 +6,7 @@
     settings = {
       "$mainMod" = "SUPER";
 
-      monitor = "HDMI-A,1920x1080@60,1366x0,1";
+      monitor = "HDMI-A-1,1920x1080@60,1366x0,1";
       monitor = "DP-1,1366x768,0x0,1"
 
       env = [

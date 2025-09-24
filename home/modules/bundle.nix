@@ -2,9 +2,10 @@
   imports = [
     ./fastfetch/default.nix
     ./zsh/default.nix
-    ./htop.nix
+    ./btop.nix
     ./git.nix
-    ./hyprland.nix
-    ./waybar.nix
+    ./hyprland/hyprland.nix
+    ./waybar/waybar.nix
+    ./rofi/rofi.nix
   ];
 }
