@@ -16,6 +16,9 @@
 
     polymc.url = "github:PolyMC/PolyMC";
 
+    stylix.url = "github:danth/stylix/release-25.05";
+    inputs.nixpkgs.follows = "nixpkgs";
+
     # zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
   };
 
@@ -25,6 +28,7 @@
       nixpkgs,
       nixpkgs-stable,
       home-manager,
+      stylix.nixosModules.stylix
       # zapret-discord-youtube,
       ...
     }@inputs:
